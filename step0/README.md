@@ -10,4 +10,4 @@ Create first project
     > django-admin startproject innovationHub
 7. Test the app
 > py manage.py runserver                     
-![First Page]("django.jpg")
+![First Page](django.jpg)

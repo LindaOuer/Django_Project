@@ -6,5 +6,8 @@ Create first project
 4. > pip install django
 5. Verify version: 
     > py -m django --version
-6. create project
+6. Create project
     > django-admin startproject innovationHub
+7. Test the app
+> py manage.py runserver                     
+![First Page]("django.jpg")

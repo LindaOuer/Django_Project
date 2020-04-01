@@ -3,4 +3,4 @@
 
 2. ModelForm
 
-3. ListView _ DetailView
+3. ListView _ DetailView _ UpdateView

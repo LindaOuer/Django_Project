@@ -1,0 +1,52 @@
+{% extends "hub/base.html" %}
+{% block content %}
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="Total-Projects">
+			  	<div class="card-header">
+			  		<h3 class="card-title">Total projects</h3>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">
+                        {% if projects %}
+                            {{ projects|length }}
+                        {% endif %}
+                    </h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+    <h1>Projects List</h1>
+    <hr>
+    <div class="card card-body">
+        <a class="btn btn-primary  btn-md btn-block" href="{% url 'project_New' %}">Create Project</a>
+        {% if projects %}
+            <table class="table table-md">
+                <tr>
+                    <th>Project Name</th>
+                    <th>Creator</th>
+                    <th> Duration </th>
+                    <th> Time Allocated </th>
+                    <th>Actions</th>
+                </tr>
+                    {% for p in projects %}
+                        {% if p %}
+                            <tr>
+                                <td><a href="{% url 'projectDV' p.id %}">{{ p.projectName }}</a></td>
+                                <td>{{ p.creator }}</td>
+                                <td>{{ p.projectDuration }}</td>
+                                <td>{{ p.timeAllocated }}</td>
+                                <td><a href="{% url 'projectUpV' p.id %}">Modify</a></td>
+                                <td><a href="{% url 'project_delete' p.id %}">Delete</a></td>
+                            </tr>
+                        {% endif %}
+                        {% empty %}
+                            <p>No available projects!</p>
+                    {% endfor %}
+            </table>
+        {% else %}
+            <p>No available projects!</p>
+        {% endif %}
+    </div>
+{% endblock %}

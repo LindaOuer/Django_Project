@@ -12,3 +12,15 @@ A step by step introduction to Django
 ## Install requirements
 requirements.txt contains all the packages you will need for this work.
 > pip install -r requirements.txt
+
+## Folders
+
+1. step0: create a project
+2. step1: create an app
+3. step2: models + migrations
+4. step3: validators
+5. step4: admin
+6. step5: actions + filter + search fields
+7. step6: views
+8. step7: Generic View
+9. step8: forms

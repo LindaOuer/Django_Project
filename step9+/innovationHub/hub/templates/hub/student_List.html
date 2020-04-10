@@ -1,0 +1,71 @@
+{% extends "hub/base.html" %}
+{% block content %}
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="Total-Projects">
+			  	<div class="card-header">
+			  		<h3 class="card-title">Total students</h3>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">
+                        {% if  students %}
+                            {{  students|length }}
+                        {% endif %}
+                    </h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
+        <div class="row">
+            <h1>Students List</h1>
+            <hr>
+            <div class="card card-body">
+                <a class="btn btn-primary  btn-md btn-block" href="{% url 'Student_New' %}">Create student</a>
+                {% if students %}
+                    <table class="table table-md">
+                        <tr>
+                            <th>Name & First Name</th>
+                            <th> Email</th>
+                            <th>Actions</th>
+                        </tr>
+                            {% for s in  students %}
+                                {% if s %}
+                                    <tr>
+                                        <td><a href="">{{ s.lastName }}_{{ s.firstName }}</a></td>
+                                        <td>{{ s.email }}</td>
+                                        <td><a href="">Update</a></td>
+                                        <td><a href="">Delete</a></td>
+                                    </tr>
+                                {% endif %}
+                                {% empty %}
+                                    <p>There is 0 students!</p>
+                            {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There is 0 students!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+         	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h3 class="card-title"> student Details</h3>
+			  	</div>
+			  	<div class="card-body">
+
+                        {% if  student %}
+                            {{ student }}
+                            {{ project }}
+                        {% endif %}
+
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

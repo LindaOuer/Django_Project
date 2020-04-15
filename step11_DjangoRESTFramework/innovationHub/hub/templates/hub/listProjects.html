@@ -1,0 +1,20 @@
+{% extends "hub/base.html" %}
+{% block content %}
+    <h1>Liste des projets</h1>
+    {% if project_list %}
+        Number of projects:
+        {{ project_list|length }}
+        <ul>
+            {% for p in project_list %}
+                {% if p %}
+                    <li><a href="{% url 'project_details' p.id %}">{{ p.nom_du_projet }}</a></li>
+                {% endif %}
+            {% empty %}
+                <p>Aucun projet n'est disponible!</p>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun projet n'est disponible.</p>
+    {% endif %}
+{% endblock %}
+

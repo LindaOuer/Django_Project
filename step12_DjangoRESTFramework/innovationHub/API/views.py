@@ -7,11 +7,15 @@ from .serializers import StudentSerializer
 
 @api_view(['GET', 'POST'])
 def students_List(request):
-    """List all students or create a new student
+    """List all the students or create a new student
 
     Arguments:
         request {HttpRequest} -- 
+
+    Returns:
+        Response -- serializer.data or status error
     """
+
     if request.method == 'GET':
         students = Student.objects.all()
         serializer = StudentSerializer(students, many=True)

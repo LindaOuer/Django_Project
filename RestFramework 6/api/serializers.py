@@ -11,7 +11,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserCreateSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, style={
                                      "input_type":   "password"})
     password2 = serializers.CharField(

@@ -8,7 +8,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from hub.models import Project
 from .serializers import ProjectSerializer
 from django.contrib.auth import get_user_model
-from .serializers import UserCreateSerializer
+from .serializers import UserSerializer
 
 User = get_user_model()
 
@@ -16,7 +16,7 @@ User = get_user_model()
 @decorators.api_view(["POST"])
 @decorators.permission_classes([permissions.AllowAny])
 def registration(request):
-    serializer = UserCreateSerializer(data=request.data)
+    serializer = UserSerializer(data=request.data)
     if not serializer.is_valid():
         return response.Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
     user = serializer.save()
